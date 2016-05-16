@@ -1,5 +1,3 @@
-proxy:
-  image: bzon/adop-nginx:latest
 jenkins:
   environment:
     AWS_REGION: "${AWS_REGION}"
