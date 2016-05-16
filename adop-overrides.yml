@@ -1,0 +1,56 @@
+proxy:
+  image: bzon/adop-nginx:latest
+jenkins:
+  environment:
+    AWS_REGION: "${AWS_REGION}"
+    VPC_ID: "${VPC_ID}"
+    KEY_PAIR: "${DEFAULT_KEY_PAIR}"
+    DEFAULT_PUBLIC_SUBNET_ID: "${DEFAULT_PUBLIC_SUBNET_ID}"
+    DEFAULT_PRIVATE_SUBNET_ID: "${DEFAULT_PRIVATE_SUBNET_ID}"
+    DEFAULT_SECURITY_GROUP_ID: "${DEFAULT_SECURITY_GROUP_ID}"
+    DEFAULT_RHEL_AMI: "${DEFAULT_RHEL_AMI}"
+    PASSWORD_GITLAB: "${PASSWORD_GITLAB}"
+    PUBLIC_IP: "${PUBLIC_IP}"
+ 
+jenkins-slave:
+  image: bzon/adop-ansible-jenkins
+  environment:
+    SLAVE_EXECUTORS: "10"
+    SWARM_PASSWORD: "${PASSWORD_JENKINS}"
+    PASSWORD_GITLAB: "${PASSWORD_GITLAB}"
+    PUBLIC_IP: "${PUBLIC_IP}"
+ 
+gitlab:
+  container_name: gitlab
+  restart: always
+  image: gitlab/gitlab-ce:latest
+  net: ${CUSTOM_NETWORK_NAME}
+  ports:
+    - "9080:80"
+    - "9443:443"
+    - "9022:22"
+  expose:
+    - "9880"
+  environment:
+    GITLAB_ROOT_PASSWORD: ${PASSWORD_GITLAB}
+    GITLAB_OMNIBUS_CONFIG: |
+     external_url 'http://${TARGET_HOST}/gitlab'
+     gitlab_rails['ldap_enabled'] = true
+     gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
+       main:
+         label: 'LDAP'
+         host: ldap
+         port: 389
+         uid: 'uid'
+         method: 'plain'
+         bind_dn: 'cn=admin,${LDAP_FULL_DOMAIN}'
+         password: '${LDAP_PWD}'
+         active_directory: false
+         allow_username_or_email_login: false
+         block_auto_created_users: false
+         base: '${LDAP_FULL_DOMAIN}'
+     EOS
+    log_driver: "syslog"
+    log_opt:
+      syslog-address: "udp://${LOGSTASH_HOST}:25826"
+      syslog-tag: "gitlab"
