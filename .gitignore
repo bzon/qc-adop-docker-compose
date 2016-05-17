@@ -1,2 +1,3 @@
+ldap_new_user_template.ldif
 platform.secrets.sh
 custom.env.sh
