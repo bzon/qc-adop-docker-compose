@@ -1,5 +1,5 @@
 jenkins:
-  image: bzon/centos-adop-jenkins:latest
+  image: bzon/centos-adop-jenkins:0.2.1
   environment:
     AWS_REGION: "${AWS_REGION}"
     VPC_ID: "${VPC_ID}"
