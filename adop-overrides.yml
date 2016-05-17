@@ -1,4 +1,5 @@
 jenkins:
+  image: bzon/centos-adop-jenkins:latest
   environment:
     AWS_REGION: "${AWS_REGION}"
     VPC_ID: "${VPC_ID}"
@@ -28,7 +29,7 @@ gitlab:
     - "9443:443"
     - "9022:22"
   expose:
-    - "9880"
+    - "9080"
   environment:
     GITLAB_ROOT_PASSWORD: ${PASSWORD_GITLAB}
     GITLAB_OMNIBUS_CONFIG: |
