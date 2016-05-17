@@ -48,7 +48,3 @@ gitlab:
          block_auto_created_users: false
          base: '${LDAP_FULL_DOMAIN}'
      EOS
-    log_driver: "syslog"
-    log_opt:
-      syslog-address: "udp://${LOGSTASH_HOST}:25826"
-      syslog-tag: "gitlab"
