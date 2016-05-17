@@ -28,6 +28,8 @@ gitlab:
     - "9080:80"
     - "9443:443"
     - "9022:22"
+  expose:
+    - "9080"
   environment:
     GITLAB_ROOT_PASSWORD: ${PASSWORD_GITLAB}
     GITLAB_OMNIBUS_CONFIG: |
