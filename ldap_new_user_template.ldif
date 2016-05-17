@@ -1,0 +1,45 @@
+dn: cn=###LDAP_USERNAME###,ou=people,dc=ldap,dc=example,dc=com
+changetype: add
+objectClass: inetOrgPerson
+cn: ###LDAP_USERNAME###
+sn: ###LDAP_USERNAME###
+displayName: ###LDAP_USERNAME###
+givenName: ###LDAP_USERNAME###
+mail: ###LDAP_USERNAME###@accenture.com
+uid: ###LDAP_USERNAME###
+userPassword: ###LDAP_PASSWORD###
+
+dn: cn=sonar-administrators,ou=groups,dc=ldap,dc=example,dc=com
+changetype: modify
+add: uniqueMember
+uniqueMember: cn=###LDAP_USERNAME###,ou=people,dc=ldap,dc=example,dc=com
+
+dn: cn=sonar-users,ou=groups,dc=ldap,dc=example,dc=com
+changetype: modify
+add: uniqueMember
+uniqueMember: cn=###LDAP_USERNAME###,ou=people,dc=ldap,dc=example,dc=com
+
+dn: cn=nx-admin,ou=groups,dc=ldap,dc=example,dc=com
+changetype: modify
+add: uniqueMember
+uniqueMember: cn=###LDAP_USERNAME###,ou=people,dc=ldap,dc=example,dc=com
+
+dn: cn=nx-developer,ou=groups,dc=ldap,dc=example,dc=com
+changetype: modify
+add: uniqueMember
+uniqueMember: cn=###LDAP_USERNAME###,ou=people,dc=ldap,dc=example,dc=com
+
+dn: cn=nx-deployment,ou=groups,dc=ldap,dc=example,dc=com
+changetype: modify
+add: uniqueMember
+uniqueMember: cn=###LDAP_USERNAME###,ou=people,dc=ldap,dc=example,dc=com
+
+dn: cn=administrators,ou=groups,dc=ldap,dc=example,dc=com
+changetype: modify
+add: uniqueMember
+uniqueMember: cn=###LDAP_USERNAME###,ou=people,dc=ldap,dc=example,dc=com
+
+dn: cn=john.smith,ou=people,dc=ldap,dc=example,dc=com
+changetype: modify
+replace: userPassword
+userPassword: ###RANDOM_LDAP_PASSWORD###
