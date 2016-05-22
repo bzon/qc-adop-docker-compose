@@ -1,4 +1,5 @@
 #!/bin/bash -e
+
 # This is a transfer tool that can be used to customised the DevOps Landing page
 # Might be put to good use someday for Oracle Landing pages...
 
@@ -9,9 +10,9 @@ if [[ -z $1 ]]; then
   exit 1
 fi
 
-if [[ ! -f /data/adop-docker-compose/custom/proxy/${1}/release_note/plugins.json ]]; then
-  echo "/data/adop-docker-compose/custom/proxy/${1}/release_note/plugins.json does not exist."
-  echo "Currently available: "
+if [[ ! -d /data/adop-docker-compose/custom/proxy/${1} ]]; then
+  echo "/data/adop-docker-compose/custom/proxy/${1} does not exist."
+  echo "Currently available:"
   echo $(ls /data/adop-docker-compose/custom/proxy)
   exit 1
 fi
