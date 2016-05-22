@@ -16,6 +16,7 @@ jenkins-slave:
   image: bzon/adop-ansible-jenkins
   environment:
     SLAVE_EXECUTORS: "10"
+    LDAP_DOMAIN: "${LDAP_DOMAIN}"
     SWARM_PASSWORD: "${PASSWORD_JENKINS}"
     PASSWORD_GITLAB: "${PASSWORD_GITLAB}"
     PUBLIC_IP: "${PUBLIC_IP}"
