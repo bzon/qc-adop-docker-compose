@@ -28,6 +28,9 @@ LimitNOFILE=1048576
 LimitNPROC=1048576
 LimitCORE=infinity
 TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target
 EOF
 
 # Install docker-compose
