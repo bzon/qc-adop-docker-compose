@@ -1,8 +1,13 @@
 #!/bin/bash -e
 
 export DOCKER_HOST=tcp://10.10.2.100:2375
-export INITIAL_WORKSPACE_NAME=FusionMiddleware
-export INITIAL_PROJECT_NAME=FusionMiddlewareProject
+export INITIAL_WORKSPACE_NAME=${1}
+export INITIAL_PROJECT_NAME={$1}Project
+
+if [[ -z $1 ]]; then
+  echo "Usage: ./gitlab-load-platform.sh ProjectName"
+  exit 1
+fi
 
 # export ADMIN credentials
 export $(docker exec jenkins env | grep ADMIN)
