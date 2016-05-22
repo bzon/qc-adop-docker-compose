@@ -50,6 +50,29 @@
                         }
                     },
                     {
+                        "id": "ricewmanager",
+                        "title": "ricewmanager",
+                        "img": "img/ricewmanager.png",
+                        "description": "AFPO EBS Accelerator for RICEW components",
+                        "link": "",
+                        "linkCreate": {
+                            "host": "ricewmanager",
+                            "endPath": "/"
+                        }
+                    },
+
+                    {
+                        "id": "csvn",
+                        "title": "csvn",
+                        "img": "img/csvn.png",
+                        "description": "Subversion Repository for EBS Accelerator",
+                        "link": "",
+                        "linkCreate": {
+                            "host": "csvn",
+                            "endPath": "/"
+                        }
+                    },
+                    {
                         "id": "sensu",
                         "title": "sensu",
                         "img": "img/sensu.png",

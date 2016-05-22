@@ -1,13 +1,8 @@
 #!/bin/bash -e
 
 export DOCKER_HOST=tcp://10.10.2.100:2375
-export INITIAL_WORKSPACE_NAME=$1
-export INITIAL_PROJECT_NAME=$2
-
-if [[ -z $1 ]] && [[ -z $2 ]]; then
-  echo "Usage: ./load_cartridge.sh WorkspaceName ProjectName"
-  exit 1
-fi
+export INITIAL_WORKSPACE_NAME=FusionMiddleware
+export INITIAL_PROJECT_NAME=FusionMiddlewareProject
 
 # export ADMIN credentials
 export $(docker exec jenkins env | grep ADMIN)

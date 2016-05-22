@@ -3,7 +3,7 @@
 
 proxy:
   container_name: proxy
-  image: bzon/adop-nginx:0.2.0
+  image: bzon/adop-nginx:0.3.0
   #build: ../images/docker-nginx/
   net: ${CUSTOM_NETWORK_NAME}
   ports:
