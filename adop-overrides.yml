@@ -10,6 +10,7 @@ jenkins:
     DEFAULT_RHEL_AMI: "${DEFAULT_RHEL_AMI}"
     PASSWORD_GITLAB: "${PASSWORD_GITLAB}"
     PUBLIC_IP: "${PUBLIC_IP}"
+    LDAP_DOMAIN: "${LDAP_DOMAIN}"
  
 jenkins-slave:
   image: bzon/adop-ansible-jenkins
