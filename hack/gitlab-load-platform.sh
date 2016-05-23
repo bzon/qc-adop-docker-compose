@@ -9,6 +9,11 @@ if [[ -z $1 ]]; then
   exit 1
 fi
 
+if [[ $1 == 'None' ]]; then
+ echo "Nothing to do.."
+ exit 0
+fi
+
 # export ADMIN credentials
 export $(docker exec jenkins env | grep ADMIN)
 
