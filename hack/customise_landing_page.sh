@@ -10,6 +10,11 @@ if [[ -z $1 ]]; then
   exit 1
 fi
 
+if [[ $1 == 'GitlabExtension' ]]; then
+  echo "GitlabExtension is enabled by default.."
+  exit 0
+fi 
+
 if [[ ! -d /data/adop-docker-compose/custom/proxy/${1} ]]; then
   echo "/data/adop-docker-compose/custom/proxy/${1} does not exist."
   echo "Currently available:"
