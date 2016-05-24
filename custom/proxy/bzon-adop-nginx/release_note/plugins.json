@@ -13,7 +13,7 @@
                     {
                         "id": "gitlab",
                         "title": "gitlab",
-                        "img": "img/gitlab.png",
+                        "img": "img/gitlab.svg",
                         "description": "Git Repository Management & Code Review Tool",
                         "link": "/gitlab/"
                     },
