@@ -4,13 +4,9 @@ export DOCKER_HOST=tcp://10.10.2.100:2375
 export INITIAL_WORKSPACE_NAME=${1}
 export INITIAL_PROJECT_NAME={$1}Project
 
-if [[ -z $1 ]]; then
-  echo "Usage: ./gitlab-load-platform.sh ProjectName"
-  exit 1
-fi
-
-if [[ $1 == 'None' ]]; then
+if [[ $1 == 'None' ]] || [[ -z $1 ]]; then
  echo "Nothing to do.."
+ echo "Usage: ./gitlab-load-platform.sh ProjectName"
  exit 0
 fi
 
